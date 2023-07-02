@@ -9,7 +9,7 @@ from core import Cog_Extension
 import re
 class vote(Cog_Extension):
     @commands.command()
-    async def vote(self,ctx,*,cho):
+    async def vote(self, ctx, *, cho):
         list = re.compile(r'\S+').findall(cho)
         options = ['(A)', '(B)', '(C)', '(D)']
         
@@ -24,7 +24,7 @@ class vote(Cog_Extension):
             count = 0
             for ele in list:
                 await msg.add_rection(options[count])
-                count = count+1
+                count = count +1
 
         else:
             embed = discord.Embed(title = "正確答案是",color = 0xFF0000)
