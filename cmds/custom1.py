@@ -11,14 +11,14 @@ class vote(Cog_Extension):
     @commands.command()
     async def vote(self,ctx,*,cho):
         list = re.compile(r'\S+').findall(cho)
-        options = ['(A)','(B)','(C)','(D)']
+        options = ['(A)', '(B)', '(C)', '(D)']
         
         if len(list) >1:
-            embed = discord.Embed(title= list[0],color=0x000982)
+            embed = discord.Embed(title = list[0], color=0x000982)
             list.pop(0)
             count = 0
             for ele in list:
-                embed.add_field(name = f"{options[count]}{ele}",value = "\u200b",inline = False)
+                embed.add_field(name = f"{options[count]}{ele}", value = "\u200b",inline = False)
                 count = count+1
             msg = await ctx.send(embed = embed)
             count = 0
@@ -28,7 +28,7 @@ class vote(Cog_Extension):
 
         else:
             embed = discord.Embed(title = "正確答案是",color = 0xFF0000)
-            embed.add_field(name = list[0],value = "\u200b",inline = False)
+            embed.add_field(name = list[0], value = "\u200b", inline = False)
             msg = await ctx.send(embed = embed)
             await msg.add_reaction("👍")
             await msg.add_reaction("💯")
